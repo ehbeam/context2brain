@@ -1,0 +1,11 @@
+# Ignore data and style directories
+data/
+corpus/
+style/
+__pycache__/
+
+# Ignore large files
+*.gz
+corpus*
+dtm*
+glove*
