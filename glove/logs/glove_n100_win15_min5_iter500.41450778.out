@@ -1,0 +1,5 @@
+
+$ build/vocab_count -min-count 5 -verbose 2 < corpus_190428.txt > vocab_190428.txt
+$ build/cooccur -memory 5.0 -vocab-file vocab_190428.txt -verbose 2 -window-size 15 < corpus_190428.txt > cooccurrence_190428.bin
+$ build/shuffle -memory 5.0 -verbose 2 < cooccurrence_190428.bin > cooccurrence_190428.shuf.bin
+$ build/glove -save-file glove_n100_win15_min5_iter500_190428 -threads 8 -input-file cooccurrence_190428.shuf.bin -x-max 10 -iter 500 -vector-size 100 -binary 2 -vocab-file vocab_190428.txt -verbose 2
